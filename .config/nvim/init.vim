@@ -17,6 +17,9 @@ Plug 'vim-airline/vim-airline'
 " Leap motions
 Plug 'ggandor/leap.nvim'
 
+" Extend f, F, t, T mappings
+Plug 'rhysd/clever-f.vim'
+
 " Undo tree
 Plug 'mbbill/undotree'
 
@@ -76,6 +79,12 @@ let g:airline_section_z = '%l/%L ☰ %03v/%03{col("$")-1}'
 
 " leap.nvim config
 lua require('leap').create_default_mappings()
+lua require('leap').opts.safe_labels = {}
+
+" clever-f config
+let g:clever_f_mark_direct = 1
+let g:clever_f_timeout_ms = 5000
+let g:clever_f_highlight_timeout_ms = 5000
 
 " signify config
 let g:signify_sign_add = '│'
