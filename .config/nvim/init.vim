@@ -79,10 +79,10 @@ let g:airline_section_z = '%l/%L ☰ %03v/%03{col("$")-1}'
 
 " Easymotion config
 let g:EasyMotion_do_mapping = 0
-nmap s <Plug>(easymotion-bd-t2)
-omap s <Plug>(easymotion-bd-t2)
-nmap S <Plug>(easymotion-bd-tn)
-omap S <Plug>(easymotion-bd-tn)
+let g:EasyMotion_landing_highlight = 0
+let g:EasyMotion_add_search_history = 0
+map s <Plug>(easymotion-bd-fn)
+map S <Plug>(easymotion-bd-tn)
 nmap w <Plug>(easymotion-bd-W)
 omap w <Plug>(easymotion-bd-W)
 nmap W <Plug>(easymotion-bd-E)
