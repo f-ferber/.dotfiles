@@ -14,8 +14,8 @@ Plug 'tpope/vim-sleuth'
 " Status bar
 Plug 'vim-airline/vim-airline'
 
-" Leap motions
-Plug 'ggandor/leap.nvim'
+" Easymotion
+Plug 'easymotion/vim-easymotion'
 
 " Extend f, F, t, T mappings
 Plug 'rhysd/clever-f.vim'
@@ -77,9 +77,16 @@ inoremap <silent> <C-D> <C-C>:q<CR>
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = '%l/%L ☰ %03v/%03{col("$")-1}'
 
-" leap.nvim config
-lua require('leap').create_default_mappings()
-lua require('leap').opts.safe_labels = {}
+" Easymotion config
+let g:EasyMotion_do_mapping = 0
+nmap s <Plug>(easymotion-bd-t2)
+omap s <Plug>(easymotion-bd-t2)
+nmap S <Plug>(easymotion-bd-tn)
+omap S <Plug>(easymotion-bd-tn)
+nmap w <Plug>(easymotion-bd-W)
+omap w <Plug>(easymotion-bd-W)
+nmap W <Plug>(easymotion-bd-E)
+omap W <Plug>(easymotion-bd-E)
 
 " clever-f config
 let g:clever_f_mark_direct = 1
