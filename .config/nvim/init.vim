@@ -20,6 +20,9 @@ Plug 'easymotion/vim-easymotion'
 " Extend f, F, t, T mappings
 Plug 'rhysd/clever-f.vim'
 
+" Better w motion
+Plug 'smoka7/hop.nvim'
+
 " Undo tree
 Plug 'mbbill/undotree'
 
@@ -83,10 +86,11 @@ let g:EasyMotion_landing_highlight = 0
 let g:EasyMotion_add_search_history = 0
 map s <Plug>(easymotion-bd-fn)
 map S <Plug>(easymotion-bd-tn)
-nmap w <Plug>(easymotion-bd-W)
-omap w <Plug>(easymotion-bd-W)
-nmap W <Plug>(easymotion-bd-E)
-omap W <Plug>(easymotion-bd-E)
+
+" Hop config
+lua require'hop'.setup{}
+map w :HopWordBC<CR>
+map W :HopWordAC<CR>
 
 " clever-f config
 let g:clever_f_mark_direct = 1
