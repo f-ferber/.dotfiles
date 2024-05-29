@@ -89,8 +89,7 @@ map S <Plug>(easymotion-bd-tn)
 
 " Hop config
 lua require'hop'.setup{}
-map w :HopWordBC<CR>
-map W :HopWordAC<CR>
+map w <cmd>HopWord<CR>
 
 " clever-f config
 let g:clever_f_mark_direct = 1
