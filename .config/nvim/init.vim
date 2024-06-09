@@ -76,6 +76,10 @@ noremap <silent> <C-D> :q<CR>
 vnoremap <silent> <C-D> <C-C>:q<CR>
 inoremap <silent> <C-D> <C-C>:q<CR>
 
+" Config folds
+set foldmethod=indent
+set foldlevel=99
+
 " vim-airline config
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = '%l/%L ☰ %03v/%03{col("$")-1}'
