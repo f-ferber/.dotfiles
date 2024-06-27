@@ -29,11 +29,14 @@ Plug 'mbbill/undotree'
 " Show diff in left column
 Plug 'mhinz/vim-signify'
 
+" Snippets
+Plug 'L3MON4D3/LuaSnip', {'do': 'make install_jsregexp'}
+
 " More support for TeX documents
 Plug 'lervag/vimtex'
 
 " Support for markdown
-Plug 'ixru/nvim-markdown'
+"Plug 'ixru/nvim-markdown'
 
 " Support for R
 Plug 'jalvesaq/Nvim-R'
@@ -51,16 +54,22 @@ set shiftwidth=2
 set expandtab
 
 " Make scrolling relative to visible lines (instead of numbered lines)
-:set wrap linebreak nolist
-:set number
-:set breakindent
-:map <ScrollWheelUp> <C-Y>
-:map <ScrollWheelDown> <C-E>
-:map <Up> gk
-:map! <Up> <C-o>gk
-:map <Down> gj
-:map! <Down> <C-o>gj
-:set nostartofline
+set wrap linebreak nolist
+set number
+set breakindent
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+map <Up> gk
+map! <Up> <C-o>gk
+map <Down> gj
+map! <Down> <C-o>gj
+set nostartofline
+
+" Disable mouse selection (but keep scrolling)
+map <LeftMouse> <nop>
+noremap <C-LeftMouse> <LeftMouse>
+imap <LeftMouse> <nop>
+inoremap <C-LeftMouse> <LeftMouse>
 
 " Remap CTRL+S to save
 noremap <silent> <D-s> :update<CR>
@@ -105,6 +114,14 @@ let g:signify_sign_add = '│'
 let g:signify_sign_delete = '│'
 let g:signify_sign_change = '│'
 hi DiffDelete guifg=#ff5555 guibg=none
+
+" LuaSnip config
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+snoremap <silent> <Tab> <cmd>lua require'luasnip'.jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+lua require'luasnip'.config.set_config({store_selection_keys = "<Tab>"})
+lua require'luasnip.loaders.from_lua'.load({paths = "~/.config/nvim/LuaSnip"})
 
 " vimtex config
 let g:vimtex_compiler_latexmk_engines = {
