@@ -19,6 +19,9 @@ if test (uname -s) = "Darwin"
 		# PATH for rust/cargo
 		set -gx PATH $PATH /Users/ferdi/.cargo/bin
 
+		# PATH for GStreamer
+		set -gx GST_PLUGIN_SYSTEM_PATH /opt/homebrew/lib/gstreamer-1.0/
+
 end
 
 # Alias for eza

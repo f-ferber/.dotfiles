@@ -14,13 +14,13 @@ Plug 'tpope/vim-sleuth'
 " Status bar
 Plug 'vim-airline/vim-airline'
 
-" Easymotion
+" Easymotion (s and S mappings)
 Plug 'easymotion/vim-easymotion'
 
 " Extend f, F, t, T mappings
 Plug 'rhysd/clever-f.vim'
 
-" Better w motion
+" Better l and w motion
 Plug 'smoka7/hop.nvim'
 
 " Undo tree
@@ -89,6 +89,13 @@ inoremap <silent> <C-D> <C-C>:q<CR>
 set foldmethod=indent
 set foldlevel=99
 
+" Set line numbering automatically depending on mode
+augroup numbertoggle
+        autocmd!
+        autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+        autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+
 " vim-airline config
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = '%l/%L ☰ %03v/%03{col("$")-1}'
@@ -103,6 +110,7 @@ map S <Plug>(easymotion-bd-tn)
 " Hop config
 lua require'hop'.setup{}
 map w <cmd>HopWord<CR>
+map l <cmd>HopLine<CR>
 
 " clever-f config
 let g:clever_f_mark_direct = 1
